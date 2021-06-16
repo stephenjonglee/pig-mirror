@@ -5,8 +5,6 @@ __author__ = 'Stephen Lee'
 __email__ = 'stephenjonglee@csu.fullerton.edu'
 __maintainer__ = 'stephenjonglee'
 
-import sys
-import random
 import time
 from pig import Pig
 

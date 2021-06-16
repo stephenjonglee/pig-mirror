@@ -5,10 +5,12 @@ __author__ = 'Stephen Lee'
 __email__ = 'stephenjonglee@csu.fullerton.edu'
 __maintainer__ = 'stephenjonglee'
 
-from die import Die
 import time
+from die import Die
+
 
 class Player:
+    """ Class PLayer """
     def __init__(self, human_player=True):
         self.is_human = human_player
         if self.is_human:
@@ -19,7 +21,6 @@ class Player:
         self.total_score = 0
         self.turn_score = 0
         self.count = 0
-        self.hold = False
         self.die = Die()
 
     def __str__(self):
@@ -34,26 +35,31 @@ class Player:
         return self.order < other.order
 
     def get_name(self):
+        """ Function get name of player """
         return self.name
 
     def set_name(self, title):
+        """ Function sets the name of player """
         self.name = title
 
     def set_order(self, num):
+        """ Function sets the order roll of the player """
         self.order = num
 
     def check_is_human(self):
+        """ Function checks if player is human """
         return self.is_human
 
     def get_total_score(self):
+        """ Function get the total score of the player """
         return self.total_score
 
     def player_turn(self):
         """ Function for a player turn """
         print(self)
         prompt = f'{self.name}, would you like to roll or hold? '
-        self.hold = input(prompt) == 'hold'
-        while not self.hold:
+        hold = input(prompt) == 'hold'
+        while not hold:
             roll = self.die.roll()
             print(f'You rolled a {roll}. \n')
             time.sleep(1)
@@ -62,10 +68,10 @@ class Player:
                 self.count += 1
                 print(self)
                 prompt = f'Keep rolling or hold? '
-                self.hold = input(prompt) == 'hold'
+                hold = input(prompt) == 'hold'
             else:
                 self.turn_score = 0
-                self.hold = True
+                hold = True
                 print(f'Oh no! Since you rolled a 1, you gain no points.')
                 time.sleep(1)
         print(f'{self.name} turn is over. You have gained {self.turn_score} points.')
@@ -84,8 +90,6 @@ class Player:
         temp_total = self.total_score
         less_than_player = True
         print(self)
-        time.sleep(2)
-        print('Computer is thinking...')
         time.sleep(2)
         while less_than_player:
             print('Computer will roll.')

@@ -5,12 +5,13 @@ __author__ = 'Stephen Lee'
 __email__ = 'stephenjonglee@csu.fullerton.edu'
 __maintainer__ = 'stephenjonglee'
 
+import time
 from player import Player
 from die import Die
-import time
 
 
 class Pig:
+    """ Class Pig game with number of players, list of players, and a die """
     def __init__(self, num=0):
         self.num_players = num
         self.player_list = []
@@ -18,11 +19,12 @@ class Pig:
         self.die = Die()
 
     def get_num_players(self):
+        """ Function get number of players """
         return self.num_players
 
     def create_players(self):
         """ Function creates players """
-        for i in range(0, self.num_players):
+        for _ in range(0, self.num_players):
             self.player_list.append(Player())
 
     def get_player_info(self):
@@ -51,9 +53,11 @@ class Pig:
         self.player_list[-1].set_order(roll)
 
     def sort_order(self):
+        """ Function sorts the players in order """
         self.player_list.sort()
 
     def play(self):
+        """ Function starts and play the game """
         print('Time to play the Pig game! \n')
         time.sleep(2)
         while not self.end:
