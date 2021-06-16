@@ -24,5 +24,14 @@ The order of the players will be decided by a die roll (ascending order so lowes
 ## Computer-Algorithm
 The computer has a simple algorithm. It will always roll first. After that, it will calculate if it's total score will be greater than the player's. If it will, then it will hold. Otherwise, it will keep rolling and try to get ahead of the player.
 
+## Game files
+The program should consists of 4 python files:
+* main.py
+* pig.py
+* player.py
+* die.py
+In order to run the game, just run main.py file. 
+For example, type python3 main.py in the terminal.
+
 ## Known bug
 Becareful of typos. The program is designed to check for user input and matching it against 'hold'. If misspelled or capitalized, then the player will not hold and will roll. If the player types 'Hold', then the player will roll.
